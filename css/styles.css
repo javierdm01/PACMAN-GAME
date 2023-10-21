@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+.body{
+    background-color: black;
+    font-family: Retro-Font;
+    color: white;
+    display: grid;
+    place-content: center;
+}
+.container{
+    width: 60vw;
+    height: 80vh;
+    background-color: red;
+}
+.game__panel{
+    height: 70vh;
+}
+.punto{
+    font-size: 20px;
+    height: fit-content;
+    width: 6px;
+}
+.rows__game{
+    display: flex;
+    justify-content: space-around;
+}
