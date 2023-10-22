@@ -5,23 +5,46 @@
     background-color: black;
     font-family: Retro-Font;
     color: white;
-    display: grid;
-    place-content: center;
+    
 }
 .container{
-    width: 60vw;
+    margin: 5% auto;
     height: 80vh;
-    background-color: red;
+    width: 80vw;
+    position: relative;
+    display: grid;
+    place-content: center;
+    
 }
 .game__panel{
-    height: 70vh;
-}
-.punto{
-    font-size: 20px;
-    height: fit-content;
-    width: 6px;
+    height: 590px;
+    width: 590px;
+    position: relative;
 }
 .rows__game{
+    width: 98%;
     display: flex;
+    position: relative;
+    height: 20.3px;
     justify-content: space-around;
+}
+.punto{
+    width: 6px;
+    font-size: 6pxpx;
+    padding-left: 7px;
+}
+.pacman{
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    background-color: yellow;
+}
+.bg-img{
+    width: 650px;
+    height: 650px;
+    display: grid;
+    place-content: center;
+    background-image: url(../assets/img/mapa.jpg);
+    background-size: 155%;
+    background-position: -180px;
 }
