@@ -24,7 +24,7 @@ let casillaPuntos=[
     [1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1],
     [1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,1],
     [1,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,1],
-    [1,1,1,0,0,1,1,1,1,1,1,1,0,2,1,1,1,1,1,1,1,0,0,1,1,1],
+    [1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,1],
     [0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0],
     [0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0],
     [1,1,1,1,1,1,0,0,1,1,1,1,0,0,1,1,1,1,0,0,1,1,1,1,1,1],
@@ -66,48 +66,44 @@ const cargarJuego=(e)=>{
 const comprobarColisiones=(e)=>{
     let tecla=e.key;
     console.log(posicionPacma[0]);
-    let p=posicionPacma[0]-1
-    if (tecla==='ArrowUp') {
-        if (casillaPuntos[p][posicionPacma[1]]!=0) {
-            casillaPuntos[posicionPacma[0]][posicionPacma[1]]=0
-            posicionPacma[0]--;
-            casillaPuntos[posicionPacma[0]][posicionPacma[1]]=2
-        }
-    }
+    let x=posicionPacma[1]
+    let y=posicionPacma[0]
     switch (tecla) {
         case 'ArrowUp':
-            if (casillaPuntos[p][posicionPacma[1]]!=0 || (casillaPuntos[p][posicionPacma[1]]!=null)) {
-                casillaPuntos[posicionPacma[0]][posicionPacma[1]]=0
+            console.log(game.children[y].children[x]);
+            if (casillaPuntos[y-1][posicionPacma[1]]!=0 || (casillaPuntos[y][posicionPacma[1]]!=null)) {
                 posicionPacma[0]--;
-                casillaPuntos[posicionPacma[0]][posicionPacma[1]]=2
+                moverPacman();
             }
             break;
         case 'ArrowDown':
-            if (casillaPuntos[p][posicionPacma[1]]!=0 || (casillaPuntos[p][posicionPacma[1]]!=null)) {
-                casillaPuntos[posicionPacma[0]][posicionPacma[1]]=0
-                posicionPacma[0]--;
-                casillaPuntos[posicionPacma[0]][posicionPacma[1]]=2
-                
+            if (casillaPuntos[y][posicionPacma[1]]!=0 || (casillaPuntos[y][posicionPacma[1]]!=null)) {
+                posicionPacma[0]++;
+                moverPacman();
             }
             break;
         case 'ArrowLeft':
-            if (casillaPuntos[p][posicionPacma[1]]!=0 || (casillaPuntos[p][posicionPacma[1]]!=null)) {
-                casillaPuntos[posicionPacma[0]][posicionPacma[1]]=0
-                posicionPacma[0]--;
-                casillaPuntos[posicionPacma[0]][posicionPacma[1]]=2
+            if (casillaPuntos[x][posicionPacma[1]]!=0 || (casillaPuntos[x][posicionPacma[1]]!=null)) {
+                posicionPacma[1]--;
+                moverPacman();
             }
             break; 
         case 'ArrowRight':
-            if (casillaPuntos[p][posicionPacma[1]]!=0 || (casillaPuntos[p][posicionPacma[1]]!=null)) {
-                casillaPuntos[posicionPacma[0]][posicionPacma[1]]=0
-                posicionPacma[0]--;
-                casillaPuntos[posicionPacma[0]][posicionPacma[1]]=2
+            if (casillaPuntos[x][posicionPacma[1]]!=0 || (casillaPuntos[x][posicionPacma[1]]!=null)) {
+                posicionPacma[1]++
+                moverPacman();
             }
             break;
 
         default:
             break;
     }
+
+}
+
+
+const moverPacman=()=>{
+    console.log(game.children[posicionPacma[0]]);
 }
 
 let posicionPacma=[];
